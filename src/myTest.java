@@ -92,14 +92,50 @@ public class myTest {
 		}
 	}
 
-	@Test(priority = 3, enabled = false)
-	public void removeItemFromTheCart() {
-		WebElement BackPackRemoveButton = driver.findElement(By.id("remove-sauce-labs-backpack"));
-		BackPackRemoveButton.click();
+	@Test(priority = 6)
+	public void Task2() {
+		List<WebElement> ItemsNames = driver.findElements(By.className("inventory_item_name"));
 
+		for (int i = 0; i < ItemsNames.size(); i++) {
+
+			String itemName = ItemsNames.get(i).getText();
+
+			if (itemName.startsWith("S")) {
+				continue;
+			} else {
+				System.out.println(itemName);
+			}
+		}
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 7)
+	public void Task3() {
+		List<WebElement> ItemsNames = driver.findElements(By.className("inventory_item_name"));
+
+		for (int i = 1; i < ItemsNames.size(); i = i + 2) {
+
+			System.out.println(ItemsNames.get(i).getText());
+
+		}
+	}
+
+	@Test(priority = 8)
+	public void Task4() {
+		
+		List<WebElement> ItemsNames = driver.findElements(By.className("inventory_item_name"));
+
+	for(int i = 0 ; i < ItemsNames.size();i++) {
+		
+		if(ItemsNames.get(i).getText().equals("Sauce Labs Fleece Jacket")) {
+			
+			break ; 
+		}
+		System.out.println(ItemsNames.get(i).getText());
+
+	}
+	}
+
+	@Test(priority = 9, enabled = false)
 	public void Logout() throws InterruptedException {
 
 		WebElement BurgerMenu = driver.findElement(By.id("react-burger-menu-btn"));
